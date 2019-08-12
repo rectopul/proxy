@@ -1,0 +1,11 @@
+version: '2'
+services:
+    nginx-proxy:
+        image: jwilder/nginx-proxy
+        container_name: nginx-proxy
+        restart: always
+        ports:
+            - "80:80"
+        volumes:
+            - /var/run/docker.sock:/tmp/docker.sock:ro
+            - ./my_custom_proxy_settings.conf:/etc/nginx/conf.d/my_custom_proxy_settings.conf
